@@ -24,8 +24,6 @@ const slice = createSlice({
 			state.characters = [...state.characters, ...action.payload];
 			state.nextPage++;
 			state.hasNext = !(action.payload.length < dataLimit);
-
-			console.log(state.hasNext, action.payload.length, dataLimit);
 		},
 	},
 });

@@ -13,3 +13,11 @@ export const getCharacters = createAsyncThunk(
 		return response.data;
 	}
 );
+
+export const getCharacter = async (id) => {
+	const response = await axios(
+		`https://www.breakingbadapi.com/api/characters/${id}`
+	);
+
+	return response.data;
+};

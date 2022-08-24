@@ -5,21 +5,23 @@ import { dataLimit } from "../store/characters";
 import Masonry from "react-masonry-css";
 import { Link } from "react-router-dom";
 import { useCharacters } from "../store/characters";
-import Loading from "./Loading";
+import Info from "./Info";
 
 export default function Characters() {
 	const { characters, loading, nextPage, hasNext } = useCharacters();
 
 	useEffect(() => {
-		getCharactersDispatch({ limit: dataLimit, page: 0 });
+		if (characters.length < 1) {
+			getCharactersDispatch({ limit: dataLimit, page: 0 });
+		}
 	}, []);
 
-	if (loading && characters.length < 1) return <Loading />;
+	if (loading && characters.length < 1) return <Info />;
 
 	return (
 		<>
 			<Masonry
-				breakpointCols={3}
+				breakpointCols={6}
 				className="characters"
 				columnClassName="characters-column"
 			>
@@ -40,7 +42,7 @@ export default function Characters() {
 				))}
 			</Masonry>
 
-			{loading && characters && <Loading />}
+			{loading && characters && <Info />}
 			{hasNext && (
 				<div className="load-more">
 					<button

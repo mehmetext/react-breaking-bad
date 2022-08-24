@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 
-export default function HomeLayout() {
+export default function AppLayout() {
 	return (
 		<>
 			<div className="appBar">

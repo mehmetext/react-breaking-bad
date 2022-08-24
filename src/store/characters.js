@@ -2,12 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import { getCharacters } from "../services/httpService";
 
-export const dataLimit = 12;
+export const dataLimit = 30;
 
 const initialState = {
 	loading: false,
 	characters: [],
 	nextPage: 0,
+	hasNext: true,
 };
 
 const slice = createSlice({
@@ -20,7 +21,11 @@ const slice = createSlice({
 		},
 		[getCharacters.fulfilled]: (state, action) => {
 			state.loading = false;
-			state.characters = action.payload;
+			state.characters = [...state.characters, ...action.payload];
+			state.nextPage++;
+			state.hasNext = !(action.payload.length < dataLimit);
+
+			console.log(state.hasNext, action.payload.length, dataLimit);
 		},
 	},
 });

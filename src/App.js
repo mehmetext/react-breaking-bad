@@ -1,10 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import HomeLayout from "./pages/HomeLayout";
+import Characters from "./components/Characters";
 
 function App() {
 	return (
 		<Routes>
-			<Route path="/" element={<Home />}></Route>
+			<Route path="/" element={<HomeLayout />}>
+				<Route index element={<Characters />} />
+				<Route
+					path="character-:id"
+					element={<div>CharacterDetails</div>}
+				/>
+				<Route path="*" element={<div>Sayfa bulunamadı...</div>} />
+			</Route>
 		</Routes>
 	);
 }

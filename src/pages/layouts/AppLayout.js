@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function AppLayout() {
 	return (
@@ -7,7 +7,9 @@ export default function AppLayout() {
 				<div className="logo">
 					<Link to="/">Breaking Bad</Link>
 				</div>
-				<div className="menu"></div>
+				<div className="menu">
+					<NavLink to="quotes">Quotes</NavLink>
+				</div>
 			</div>
 			<Outlet />
 		</>

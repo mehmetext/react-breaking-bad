@@ -14,7 +14,7 @@ export default function CharacterDetails() {
 			setChar((await getCharacter(id))[0]);
 			setLoading(false);
 		})();
-	}, []);
+	}, [id]);
 
 	if (loading) return <Info />;
 
@@ -23,7 +23,7 @@ export default function CharacterDetails() {
 	return (
 		<div>
 			<h1>{char.name}</h1>
-			<img src={char.img} style={{ width: "50%" }} />
+			<img alt={char.name} src={char.img} style={{ width: "50%" }} />
 			<div>
 				<pre>{JSON.stringify(char, null, 2)}</pre>
 			</div>

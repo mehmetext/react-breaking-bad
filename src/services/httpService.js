@@ -21,3 +21,9 @@ export const getCharacter = async (id) => {
 
 	return response.data;
 };
+
+export const getQuotes = createAsyncThunk("quotes/getQuotes", async () => {
+	const response = await axios("https://www.breakingbadapi.com/api/quotes");
+
+	return response.data;
+});

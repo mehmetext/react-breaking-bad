@@ -14,6 +14,7 @@ export default function Characters() {
 		if (characters.length < 1) {
 			getCharactersDispatch({ limit: dataLimit, page: 0 });
 		}
+		//eslint-disable-next-line
 	}, []);
 
 	if (loading && characters.length < 1) return <Info />;

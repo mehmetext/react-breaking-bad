@@ -73,3 +73,19 @@ a {
 	color: #fff;
 	border-radius: 30px;
 }
+
+.quotes {
+	padding: 0 10px;
+}
+
+.quote {
+	background: #ddd;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.quote-author {
+	display: flex;
+	justify-content: flex-end;
+}
